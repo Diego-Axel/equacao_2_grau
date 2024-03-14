@@ -36,8 +36,7 @@ print("")
 
 # CONDICONIAS: 
 if delta > 0:
-
-    print("Delta é maior que 0, então o valor de X1 e X2 será diferente: ") 
+    print("Delta é maior que 0, então o valor de X1 e X2 serão diferente: ") 
     print("")
 
     # CAUCULANDO O VALOR DE X1 E X2 
@@ -78,4 +77,6 @@ else:
 
 
 print("FIM DO PROGRAMA") 
+
+# END
 

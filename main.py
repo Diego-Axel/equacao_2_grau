@@ -51,7 +51,6 @@ if delta > 0:
     x2 = float((-valor_b - (sqrt(delta)))/(2*valor_a))
     print("O valor de X2 é = %.2f"%x2)
     print()
-
 elif delta == 0:
     print("Delta é igual a 0, então X1 e X2 serão iguais")
     print()
@@ -68,14 +67,10 @@ elif delta == 0:
     x2 = float((-valor_b - (sqrt(delta)))/(2*valor_a))
     print(f"O valor de X2 é = {x2}")
     print()
-
-
 else:
     print("Delta é < 0 (NEGATIVO)")
     print("NÃO EXISTE RAIZ PARA DELTA NEGATIVO!")
     print()
-
-
+    
 print("FIM DO PROGRAMA") 
-
 # END

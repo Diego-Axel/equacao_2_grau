@@ -4,8 +4,9 @@
 ######                    CAICÓ-RN                    ######
 ############################################################
 
-
 from math import sqrt # Importando a biblioteca math, em específico o SQRT para a dar a raiz quadrada
+import matplotlib.pyplot as plt # pip install matplotlib numpy -> Importa o matplotlib para plotar gráficos
+import numpy as np # pip install matplotlib numpy -> Importa o numpy para operações numéricas
 import interface
 
 resp = True
@@ -47,7 +48,7 @@ while resp:
     print(f"Sua equação é {valor_a}x² {valor_b}x {valor_c} = 0") 
     print()
 
-    # CAUCULANDO O VALOR DE DELTA(A)
+    # CALCULANDO O VALOR DE DELTA(A)
     print("A fórmula de BASKARA é: A(DELTA) = B² - 4ac")
     print("-----------------------------------------------")
     print("Passando suas informações para a fórmula, temos:")
@@ -59,13 +60,13 @@ while resp:
     print(f"O valor de Delta é: {delta}")
     print()
 
-    # CONDICONIAS: 
+    # CONDIÇÕES:
     if delta > 0:
-        print("Delta é maior que 0, então o valor de X1 e X2 serão diferente: ") 
+        print("Delta é maior que 0, então o valor de X1 e X2 serão diferentes: ") 
         print()
 
-        # CAUCULANDO O VALOR DE X1 E X2 
-        print("Agora iremos achar o valor de X1 e X2. A formula para chegar no valor deles é: X = -b +- RA/2a. X1 sera atriuido o sinal +(positivo) e x2 o sinal -(negativo)")
+        # CALCULANDO O VALOR DE X1 E X2 
+        print("Agora iremos achar o valor de X1 e X2. A fórmula para chegar no valor deles é: X = -b +- RA/2a. X1 será atribuído o sinal +(positivo) e x2 o sinal -(negativo)")
         print()
 
         # X1 ->
@@ -80,8 +81,8 @@ while resp:
         print("Delta é igual a 0, então X1 e X2 serão iguais")
         print()
     
-        # CAUCULANDO O VALOR DE X1 E X2   
-        print("Agora iremos achar o valor de X1 e X2. A formula para chegar no valor deles é: X = -b +- RA/2a. X1 sera atriuido o sinal +(positivo) e x2 o sinal -(negativo)")
+        # CALCULANDO O VALOR DE X1 E X2   
+        print("Agora iremos achar o valor de X1 e X2. A fórmula para chegar no valor deles é: X = -b +- RA/2a. X1 será atribuído o sinal +(positivo) e x2 o sinal -(negativo)")
         print()
 
         # X1 ->
@@ -96,6 +97,25 @@ while resp:
         print("Delta é < 0 (NEGATIVO)")
         print("NÃO EXISTE RAIZ PARA DELTA NEGATIVO!")
         print()
+
+    # GERANDO O GRÁFICO DA PARÁBOLA
+    '''
+    Utiliza numpy para criar uma linha de valores x e calcula os valores correspondentes y para a equação. Plota o gráfico da parábola usando matplotlib.
+    '''
+
+    x = np.linspace(-10, 10, 400)
+    y = valor_a * x**2 + valor_b * x + valor_c
+
+    plt.plot(x, y, label=f'{valor_a}x² {valor_b:+}x {valor_c:+}')
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+    plt.title('Gráfico da Equação do 2º Grau')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.legend()
+    plt.show()
+
     interface.confirmacao()
     resp = input("Digite sua resposta: ")
     resp = resp.upper()
